@@ -5,9 +5,9 @@ import React from  "react";
 import { BrowserRouter as Router, Route,Link } from "react-router-dom";
 
 import "../static/style/style.less";
-import Welcome from "../components/pages/Welcome";
-import User from "../components/pages/User";
-import Tweets from "../components/pages/Tweets";
+import Welcome from "../components/Welcome";
+import User from "../components/User";
+import Tweets from "../components/Tweets";
 
 //v4
 export default class Routes extends React.Component {

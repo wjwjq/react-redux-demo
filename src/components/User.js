@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchUser, setUserName } from "../../redux/actions/userActions";
+import { fetchUser, setUserName } from "../redux/actions/userActions";
 
 @connect((store) => {
     return {

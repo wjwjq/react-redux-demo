@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { fetchTweets, addTweet } from "../../redux/actions/tweetsActions";
+import { fetchTweets, addTweet } from "../redux/actions/tweetsActions";
 
-import { getRandomId } from "../../config/utils";
+import { getRandomId } from "../config/utils";
 
 @connect((store) => {
     return {
