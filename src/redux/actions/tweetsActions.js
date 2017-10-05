@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 //异步 -- 方法一: thunk
 // store.dispatch((dispatch) => {
@@ -21,19 +21,19 @@ import axios from "axios";
 
 export function fetchTweets() {
     return function (dispatch) {
-        axios.get("http://rest.learncode.academy/api/test123/tweets")
+        axios.get('http://rest.learncode.academy/api/test123/tweets')
             .then((response) => {
-                dispatch({ type: "FETCH_TWEETS_FULFILLED", payload: response.data });
+                dispatch({ type: 'FETCH_TWEETS_FULFILLED', payload: response.data });
             })
             .catch((err) => {
-                console.log(err);
+                console.info(err);
             });
     };
 }
 
 export function addTweet(id, text) {
     return {
-        type: "ADD_TWEET",
+        type: 'ADD_TWEET',
         payload: {
             id,
             text
@@ -43,7 +43,7 @@ export function addTweet(id, text) {
 
 export function  updateTweet(id, text) {
     return {
-        type: "UPDATE_TWEET",
+        type: 'UPDATE_TWEET',
         payload: {
             id,
             text
@@ -53,7 +53,7 @@ export function  updateTweet(id, text) {
 
 export function  deleteTweet(id) {
     return {
-        type: "UPDATE_TWEET",
+        type: 'UPDATE_TWEET',
         payload: {
             id
         }

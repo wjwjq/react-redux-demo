@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { fetchTweets, addTweet } from "../redux/actions/tweetsActions";
+import { fetchTweets, addTweet } from '../redux/actions/tweetsActions';
 
-import { getRandomId } from "../config/utils";
+import { getRandomId } from '../config/utils';
 
 @connect((store) => {
     return {
@@ -14,7 +14,7 @@ import { getRandomId } from "../config/utils";
 export default class Tweets extends Component {
     constructor() {
         super();
-        this.state = { id: "", inputVal: "" };
+        this.state = { id: '', inputVal: '' };
     }
     fetchTweets() {
         this.props.dispatch(fetchTweets());
@@ -28,7 +28,7 @@ export default class Tweets extends Component {
             const id = getRandomId();
             const text = this.state.inputVal;
             this.props.dispatch(addTweet(id, text));
-            e.target.value = "";
+            e.target.value = '';
         }
     }
     render() {
@@ -37,7 +37,7 @@ export default class Tweets extends Component {
             return <button onClick={this.fetchTweets.bind(this)}>load tweets</button>;
         }
         
-        let mappedTweets = tweets.map((tweet,idx) => <li key={idx}><span>{typeof tweet.text === "object" ? tweet.text.tweet : tweet.text}</span></li>);
+        let mappedTweets = tweets.map((tweet,idx) => <li key={idx}><span>{typeof tweet.text === 'object' ? tweet.text.tweet : tweet.text}</span></li>);
         
         return (
             <div>

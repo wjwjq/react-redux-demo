@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const testImage = require("../static/images/test.jpeg");
+const testImage = require('../static/images/test.jpeg');
 
 export default class Welcome extends React.Component {
     render() {

@@ -1,18 +1,24 @@
-import React from "react";
-import ReactDOM from  "react-dom";
-import { Provider } from "react-redux";
-import Routes from "./routes/Routes";
-import store from "./redux/store/store";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import { ConnectedRouter } from 'react-router-redux';
+
+import store, { history } from './redux/store/';
+//引入路由
+import Routes from './routes';
+
+import './static/style/style.less';
 
 const App = () => {
     return (
         <Provider store={store}>
-            <Routes />
+            <ConnectedRouter history={history}>
+                <Routes />
+            </ConnectedRouter>
         </Provider>
     );
 };
 
-const app = document.getElementById("app");
-
-ReactDOM.render(<App/>, app);
+ReactDOM.render(<App />, document.getElementById('app')); 
 
