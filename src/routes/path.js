@@ -7,6 +7,7 @@ if (global.activeServerSubdomain) {
         user: '/user',
         root: '/'
     };
+    
 } else {
     const APPNAME = global.APPNAME.replace(/\//g, '');
     
