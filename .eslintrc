@@ -80,7 +80,7 @@
     }],
     "no-extra-semi": ["error"],
     "arrow-spacing": ["warn"],
-    "arrow-parens": ["warn"],
+    "arrow-parens": ["warn","as-needed"],
     "react/jsx-uses-react": [ "error" ],
     "react/jsx-uses-vars": [ "error" ],
     "react/react-in-jsx-scope": [ "error" ]
