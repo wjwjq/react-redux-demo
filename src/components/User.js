@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchUser, setUserName } from '../redux/actions/userActions';
 
-@connect((store) => {
+@connect(store => {
     return {
         user: store.user.user
     };

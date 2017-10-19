@@ -8,8 +8,6 @@ import store, { history } from './redux/store/';
 //引入路由
 import Routes from './routes';
 
-import './static/style/style.less';
-
 const App = () => {
     return (
         <Provider store={store}>

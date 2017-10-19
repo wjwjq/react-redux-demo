@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import pathConfigs from '../routes/path';
+import CSSModules from 'react-css-modules';
+import styles from './style.less';
+import pathConfigs from '../../routes/path';
+
 const Nav = () =>  {
     return (
-        <ul class="nav">
+        <ul styleName="nav">
             <li>
                 <Link to={pathConfigs.root} >Welcome</Link>
             </li>
@@ -17,4 +20,4 @@ const Nav = () =>  {
     );
 };
 
-export default Nav;
+export default CSSModules(Nav, styles, { allowMultiple: true } );

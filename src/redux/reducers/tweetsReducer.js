@@ -31,7 +31,7 @@ export default function reducer(state = initialState, action) {
         case 'UPDATE_TWEET': {
             const { id } = action.payload;
             const newTweets = [...state.tweets];
-            const tweetToUpdate = newTweets.findIndex((tweet) => tweet.id === id);
+            const tweetToUpdate = newTweets.findIndex(tweet => tweet.id === id);
             newTweets[tweetToUpdate] = action.payload;
 
             return {
@@ -42,7 +42,7 @@ export default function reducer(state = initialState, action) {
         case 'DELETE_TWEET': {
             return {
                 ...state,
-                tweets: state.tweets.filter((tweet) => tweet.id !== action.payload)
+                tweets: state.tweets.filter(tweet => tweet.id !== action.payload)
             };
         }
     }

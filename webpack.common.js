@@ -45,9 +45,9 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             sourceMap: true, //生成样式表link,添加到html head中
-                            modules: false, // css modules
+                            modules: true, // css modules
                             importLoaders: 1,
-                            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                            localIdentName: '[local]-[hash:base64:8]'
                         }
                     }, 'postcss-loader', 'less-loader'],
                     publicPath: 'dist'
@@ -55,9 +55,9 @@ module.exports = {
                     loader: 'css-loader',
                     options: {
                         sourceMap: true, //生成样式表link,添加到html head中
-                        modules: false,
+                        modules: true,
                         importLoaders: 1,
-                        localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                        localIdentName: '[local]-[hash:base64:8]'
                     }
                 }, 'postcss-loader', 'less-loader'],
             include: [APP_PATH]

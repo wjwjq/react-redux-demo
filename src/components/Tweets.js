@@ -5,7 +5,7 @@ import { fetchTweets, addTweet } from '../redux/actions/tweetsActions';
 
 import { getRandomId } from '../config/utils';
 
-@connect((store) => {
+@connect(store => {
     return {
         tweets: store.tweets.tweets
     };

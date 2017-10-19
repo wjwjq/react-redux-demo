@@ -8,11 +8,11 @@ import Welcome from '../components/Welcome';
 
 //异步加载
 const User = asyncComponent(() =>
-    System.import('../components/User').then((module) => module.default)
+    System.import('../components/User').then(module => module.default)
 );
 
 const Tweets = asyncComponent(() =>
-    System.import('../components/Tweets').then((module) => module.default)
+    System.import('../components/Tweets').then(module => module.default)
 );
 
 //v4
