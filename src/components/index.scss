@@ -1,0 +1,11 @@
+$linkColor: #08c;
+.welcome {
+    p {
+        text-align: center;
+        color: $linkColor;
+    }
+    img{
+        display: block;
+        margin: 0 auto;
+    }
+}

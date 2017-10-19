@@ -63,6 +63,32 @@ module.exports = {
             include: [APP_PATH]
         },
         {
+            test: /\.scss$/,
+            use: process.env.NODE_ENV === 'production' ?
+                ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true, //生成样式表link,添加到html head中
+                            modules: true, // css modules
+                            importLoaders: 1,
+                            localIdentName: '[local]-[hash:base64:8]'
+                        }
+                    }, 'postcss-loader', 'sass-loader'],
+                    publicPath: 'dist'
+                }) : ['style-loader', {
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: true, //生成样式表link,添加到html head中
+                        modules: true,
+                        importLoaders: 1,
+                        localIdentName: '[local]-[hash:base64:8]'
+                    }
+                }, 'postcss-loader', 'sass-loader'],
+            include: [APP_PATH]
+        },
+        {
             test: /\.html$/,
             use: ['html-loader'],
             include: [APP_PATH]
