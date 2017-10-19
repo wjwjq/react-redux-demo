@@ -55,7 +55,7 @@ module.exports = {
                     loader: 'css-loader',
                     options: {
                         sourceMap: true, //生成样式表link,添加到html head中
-                        modules: true,
+                        modules: false,
                         importLoaders: 1,
                         localIdentName: '[local]-[hash:base64:8]'
                     }
@@ -81,7 +81,7 @@ module.exports = {
                     loader: 'css-loader',
                     options: {
                         sourceMap: true, //生成样式表link,添加到html head中
-                        modules: true,
+                        modules: false,
                         importLoaders: 1,
                         localIdentName: '[local]-[hash:base64:8]'
                     }
