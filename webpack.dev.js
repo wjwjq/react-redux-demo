@@ -89,7 +89,9 @@ module.exports = Merge(commonConfig, {
         new HtmlWebpackPlugin({
             title: 'app',
             template: './index.html',
-            chunksSortMode: 'dependency'
+            chunksSortMode: 'dependency',
+            favicon: 'src/static/images/defaultAvatar.png', //配置favicon
+            inject: true
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
