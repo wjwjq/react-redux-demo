@@ -20,3 +20,6 @@ const App = () => {
 
 ReactDOM.render(<App />, document.getElementById('app')); 
 
+if (module.hot) { //启用热更新
+    module.hot.accept();
+}

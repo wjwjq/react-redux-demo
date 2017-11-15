@@ -8,7 +8,6 @@ const APP_PATH = path.resolve(ROOT_PATH, 'src');
 const APP_FILE = path.resolve(APP_PATH, 'app.js');
 const BUILD_PATH = path.join(__dirname, 'dist');
 
-
 module.exports = {
     //页面入口文件配置
     entry: {
@@ -55,7 +54,7 @@ module.exports = {
                     loader: 'css-loader',
                     options: {
                         sourceMap: true, //生成样式表link,添加到html head中
-                        modules: false,
+                        modules: true,
                         importLoaders: 1,
                         localIdentName: '[local]-[hash:base64:8]'
                     }
@@ -81,7 +80,7 @@ module.exports = {
                     loader: 'css-loader',
                     options: {
                         sourceMap: true, //生成样式表link,添加到html head中
-                        modules: false,
+                        modules: true,
                         importLoaders: 1,
                         localIdentName: '[local]-[hash:base64:8]'
                     }
