@@ -27,7 +27,11 @@ export default class User extends React.Component {
         return (
             <div>
                 <h1>{user.name}</h1>
-                <input type="text" defaultValue={user.name}  onChange={this.changeName.bind(this)}/>
+                <input 
+                    type="text"
+                    defaultValue={user.name}  
+                    onChange={this.changeName.bind(this)}
+                />
             </div>
         );
     }

@@ -1,8 +1,8 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 const testImage = require('../static/images/test.jpeg');
-import  style from './index.scss';
-@CSSModules(style)
+// import  style from './index.scss';
+// @CSSModules(style)
 export default class Welcome extends React.Component {
     render() {
         return (

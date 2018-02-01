@@ -1,0 +1,97 @@
+.custom-carousel {
+    width: 100%;
+    height: 100%;
+    &-item {
+        float: left;
+        &-box {
+            position: relative;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            &-inner{
+              overflow: hidden;
+              transition: .3s ease-in-out;
+            }
+          }
+
+        img {
+            user-select: none;
+            position: relative;
+            z-index: 0;
+        }
+
+
+        &-content {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            h1 {
+                font-size: 36px;
+                color: #fff;
+            }
+            h2 {
+                font-size: 28px;
+                color: #fff;
+            }
+            button {
+                display: block;
+                margin: 0 auto;
+            }
+            &-mask {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: 2;
+                background-color: rgba(0, 0, 0, .37);
+            }
+        }
+    }
+
+    &-dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 10px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        background: #fff;
+        cursor: pointer;
+        &.active{
+          background-color: #f00;
+        }
+        &-box {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            text-align: center;
+            font-size: 0;
+            z-index: 1;
+        }
+    }
+
+    &-arrow {
+        position: absolute;
+        top: 50%;
+        width: 30px;
+        height: 80px;
+        transform: translate(0, -50%);
+        font-size: 28px;
+        color: #fff;
+        background: rgba(0, 0, 0, .45);
+        line-height: 80px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        &-prev {
+            left: 30px;
+        }
+        &-next {
+            right: 30px;
+        }
+    }
+}

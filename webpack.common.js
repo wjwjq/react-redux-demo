@@ -36,6 +36,31 @@ module.exports = {
             exclude: /node_modules/
         },
         {
+            test: /\.css$/,
+            use: process.env.NODE_ENV === 'production' ?
+                ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true, //生成样式表link,添加到html head中
+                            modules: true, // css modules
+                            importLoaders: 1,
+                            localIdentName: '[local]-[hash:base64:8]'
+                        }
+                    }, 'postcss-loader'],
+                    publicPath: 'dist'
+                }) : ['style-loader', {
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: true, //生成样式表link,添加到html head中
+                        modules: false,
+                        importLoaders: 1,
+                        localIdentName: '[local]-[hash:base64:8]'
+                    }
+                }, 'postcss-loader']
+        },
+        {
             test: /\.less$/,
             use: process.env.NODE_ENV === 'production' ?
                 ExtractTextPlugin.extract({
@@ -54,39 +79,37 @@ module.exports = {
                     loader: 'css-loader',
                     options: {
                         sourceMap: true, //生成样式表link,添加到html head中
-                        modules: true,
+                        modules: false,
                         importLoaders: 1,
                         localIdentName: '[local]-[hash:base64:8]'
                     }
-                }, 'postcss-loader', 'less-loader'],
-            include: [APP_PATH]
+                }, 'postcss-loader', 'less-loader']
         },
-        {
-            test: /\.scss$/,
-            use: process.env.NODE_ENV === 'production' ?
-                ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [{
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true, //生成样式表link,添加到html head中
-                            modules: true, // css modules
-                            importLoaders: 1,
-                            localIdentName: '[local]-[hash:base64:8]'
-                        }
-                    }, 'postcss-loader', 'sass-loader'],
-                    publicPath: 'dist'
-                }) : ['style-loader', {
-                    loader: 'css-loader',
-                    options: {
-                        sourceMap: true, //生成样式表link,添加到html head中
-                        modules: true,
-                        importLoaders: 1,
-                        localIdentName: '[local]-[hash:base64:8]'
-                    }
-                }, 'postcss-loader', 'sass-loader'],
-            include: [APP_PATH]
-        },
+        // {
+        //     test: /\.scss$/,
+        //     use: process.env.NODE_ENV === 'production' ?
+        //         ExtractTextPlugin.extract({
+        //             fallback: 'style-loader',
+        //             use: [{
+        //                 loader: 'css-loader',
+        //                 options: {
+        //                     sourceMap: true, //生成样式表link,添加到html head中
+        //                     modules: true, // css modules
+        //                     importLoaders: 1,
+        //                     localIdentName: '[local]-[hash:base64:8]'
+        //                 }
+        //             }, 'postcss-loader', 'sass-loader'],
+        //             publicPath: 'dist'
+        //         }) : ['style-loader', {
+        //             loader: 'css-loader',
+        //             options: {
+        //                 sourceMap: true, //生成样式表link,添加到html head中
+        //                 modules: true,
+        //                 importLoaders: 1,
+        //                 localIdentName: '[local]-[hash:base64:8]'
+        //             }
+        //         }, 'postcss-loader', 'sass-loader']
+        // },
         {
             test: /\.html$/,
             use: ['html-loader'],
