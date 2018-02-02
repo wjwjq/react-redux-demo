@@ -134,24 +134,24 @@ export default class Home extends Component {
 
                 <div class="custom-carousel-arrow-group">
                     <div
-                        class="custom-carousel-arrow-box custom-carousel-arrow-box-left"
+                        class={`custom-carousel-arrow-box custom-carousel-arrow-box-left ${ this.state.whichArrowShow === 'prev' ? 'active' : '' }`}
                         onMouseEnter={this.handleArrowBoxMouseEnter('prev')}
                         onMouseLeave={this.handleArrowBoxMouseLeave}
                         >
                     <span
-                        class={`custom-carousel-arrow custom-carousel-arrow-prev ${ this.state.whichArrowShow === 'prev' ? 'active' : '' }` }
+                        class="custom-carousel-arrow custom-carousel-arrow-prev"
                         onClick={this.handlePrevArrowClick}
                     >
                     &lt;
                     </span>
                     </div>
                     <div
-                         class="custom-carousel-arrow-box custom-carousel-arrow-box-right"
+                         class={ `custom-carousel-arrow-box custom-carousel-arrow-box-right  ${ this.state.whichArrowShow === 'next' ? 'active' : '' }` }
                          onMouseEnter={this.handleArrowBoxMouseEnter('next')}
                          onMouseLeave={this.handleArrowBoxMouseLeave}
                          >
                     <span
-                        class={`custom-carousel-arrow custom-carousel-arrow-next ${ this.state.whichArrowShow === 'next' ? 'active' : '' }` }
+                        class="custom-carousel-arrow custom-carousel-arrow-next"
                         onClick={this.handleNextArrowClick}
                     >
                  &gt;
