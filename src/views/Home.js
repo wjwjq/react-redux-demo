@@ -35,17 +35,29 @@ export default class Home extends Component {
     constructor() {
         super();
 
+        this.handlePrevArrowClick  = this.handlePrevArrowClick.bind(this);
+        this.handleNextArrowClick  = this.handleNextArrowClick.bind(this);
+        this.handleArrowBoxMouseLeave  = this.handleArrowBoxMouseLeave.bind(this);
+
         this.state = {
-            currentIndex: 0
+            currentIndex: 0,
+            whichArrowShow: ''
         };
+        
     }
 
     componentDidMount() {
-        console.info(        this.reactSwipe.swipe);
     }
 
+    handlePrevArrowClick() {
+        this.reactSwipe.swipe.prev();
+        this.setState({
+            currentIndex: this.reactSwipe.swipe.getPos()
+        });
+    }
+
+
     handleNextArrowClick() {
-        console.info(1);
         this.reactSwipe.swipe.next();
         this.setState({
             currentIndex: this.reactSwipe.swipe.getPos()
@@ -56,6 +68,18 @@ export default class Home extends Component {
         this.reactSwipe.swipe.slide(id);
         this.setState({
             currentIndex: id
+        });
+    }
+
+    handleArrowBoxMouseEnter = whichArrowShow => () => {
+        this.setState({
+            whichArrowShow
+        });
+    }
+
+    handleArrowBoxMouseLeave() {
+        this.setState({
+            whichArrowShow: null
         });
     }
 
@@ -82,29 +106,17 @@ export default class Home extends Component {
 
         const swipeOptions = {
             speed: 400,
-            auto: 3000,
+            auto: 10000,
             continuous: true,
             disableScroll: false,
             stopPropagation: false,
-            pagination: {
-                el: '.swiper-pagination',
-                type: 'bullets',
-                clickable: true
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            },
             callback: (index, elem)  => {
-                console.info(index);
                 this.setState({
                     currentIndex: index
                 });
             },
             transitionEnd: function (index, elem) {}
         };
-
-        console.info();
 
         const dots = imgList.map((item, idx) => <span className={`custom-carousel-dot ${this.state.currentIndex === idx ? 'active' :''} `} key={idx} id={idx} onClick={this.handleDotClick(idx)}></span>);
         
@@ -121,18 +133,30 @@ export default class Home extends Component {
                 </div>
 
                 <div class="custom-carousel-arrow-group">
+                    <div
+                        class="custom-carousel-arrow-box custom-carousel-arrow-box-left"
+                        onMouseEnter={this.handleArrowBoxMouseEnter('prev')}
+                        onMouseLeave={this.handleArrowBoxMouseLeave}
+                        >
                     <span
-                        class="custom-carousel-arrow custom-carousel-arrow-prev"
+                        class={`custom-carousel-arrow custom-carousel-arrow-prev ${ this.state.whichArrowShow === 'prev' ? 'active' : '' }` }
                         onClick={this.handlePrevArrowClick}
                     >
-                 &lt;
+                    &lt;
                     </span>
+                    </div>
+                    <div
+                         class="custom-carousel-arrow-box custom-carousel-arrow-box-right"
+                         onMouseEnter={this.handleArrowBoxMouseEnter('next')}
+                         onMouseLeave={this.handleArrowBoxMouseLeave}
+                         >
                     <span
-                        class="custom-carousel-arrow custom-carousel-arrow-next"
-                        onClick={this.handleNextArrowClick.bind(this)}
+                        class={`custom-carousel-arrow custom-carousel-arrow-next ${ this.state.whichArrowShow === 'next' ? 'active' : '' }` }
+                        onClick={this.handleNextArrowClick}
                     >
                  &gt;
                     </span>
+                    </div>
                 </div>
             </div>
         );
